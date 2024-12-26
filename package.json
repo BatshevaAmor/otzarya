@@ -1,0 +1,53 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package:win": "cross-var electron-packager dist $npm_package_name-$npm_package_version --out=packages --platform=win64 --arch=all --overwrite ",
+    "package:linux": "cross-var electron-packager dist $npm_package_name-$npm_package_version --out=packages --platform=linux --arch=all --overwrite ",
+    "package:osx": "cross-var electron-packager dist $npm_package_name-$npm_package_version --out=packages --platform=darwin --arch=all --overwrite ",
+    "package:all": "cross-var electron-packager dist $npm_package_name-$npm_package_version --out=packages --all --arch=all --overwrite ",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-var": "^1.1.0",
+    "electron": "^33.0.2",
+    "electron-builder": "^25.1.8",
+    "electron-packager": "^17.1.2"
+  },
+  "directoriess": {
+    "output": "electron/output",
+    "app": "electron/app",
+    "buildResources": "electron/buildResources"
+  },
+  "build": {
+    "productName": "Torah Library",
+    "appId": "scripter.TorahLibrary",
+    "win": {
+      "target": [
+        "portable", "nsis"
+      ]
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "TorahLibraryPortable.exe"
+    }
+  },
+  "dependencies": {
+  }
+}
